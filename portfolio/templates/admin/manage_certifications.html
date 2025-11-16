@@ -1,0 +1,82 @@
+{% extends "admin/dashboard_base.html" %}
+{% load static %}
+
+{% block page_title %}Manage Certifications{% endblock %}
+
+{% block dashboard_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Certifications Management</h2>
+    <a href="#" class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Add New Certification
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        {% if certifications %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Certification</th>
+                        <th>Organization</th>
+                        <th>Issue Date</th>
+                        <th>Expiry</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cert in certifications %}
+                    <tr>
+                        <td>
+                            <strong>{{ cert.title }}</strong>
+                            {% if cert.credential_id %}
+                            <br><small class="text-muted">ID: {{ cert.credential_id }}</small>
+                            {% endif %}
+                        </td>
+                        <td>{{ cert.issuing_organization }}</td>
+                        <td>{{ cert.issue_date|date:"M d, Y" }}</td>
+                        <td>
+                            {% if cert.expiry_date %}
+                                {% if cert.expiry_date > today %}
+                                <span class="badge bg-success">{{ cert.expiry_date|date:"M d, Y" }}</span>
+                                {% else %}
+                                <span class="badge bg-danger">Expired</span>
+                                {% endif %}
+                            {% else %}
+                                <span class="badge bg-info">No Expiry</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                {% if cert.credential_url %}
+                                <a href="{{ cert.credential_url }}" target="_blank" class="btn btn-outline-info">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-certificate fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">No Certifications Yet</h4>
+            <p class="text-muted">Add your professional certifications to showcase your qualifications.</p>
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Add Your First Certification
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

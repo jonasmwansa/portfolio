@@ -1,0 +1,170 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Jonas | Blog & Professional Insights{% endblock %}
+
+{% block content %}
+
+<section id="blog-index" class="py-5">
+<div class="container">
+<nav aria-label="breadcrumb" class="mb-4 animate-in">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{% url 'portfolio:home' %}">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Blog</li>
+</ol>
+</nav>
+
+    <h1 class="section-heading animate-in">Professional Journey & Insights</h1>
+    <p class="lead text-muted mb-5 animate-in">Sharing my experiences, projects, and professional milestones in technology and software development.</p>
+
+    <div class="row g-4 mt-4">
+        <!-- Blog Post 1 - World Engineering Day -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/007bff/ffffff?text=Engineering+Hackathon" 
+                     class="card-img-top" 
+                     alt="World Engineering Day Hackathon">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">4th March 2021 - <span class="text-primary">Event</span></span>
+                    <h5 class="card-title mt-2">World Engineering Day | 4th March, 2021</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        A parallel hackathon session was organized and featured 8 students of engineering that competed in coding a program in line with the theme. The activities were held at the University of Zambia and the Copperbelt University.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://ictaz-cbu.netlify.app/gallery/hackathon.html" target="_blank" class="btn btn-sm btn-outline-primary">
+                            View Gallery <i class="fas fa-external-link-alt ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 2 - Service Portal Training -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/28a745/ffffff?text=Service+Portal+Training" 
+                     class="card-img-top" 
+                     alt="Service Portal System Training">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">12 February 2024 - <span class="text-success">Training</span></span>
+                    <h5 class="card-title mt-2">Service Portal System User Training</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        Post user training of the first ever corporate solution I ever built known as the SERVICE PORTAL to help the Examinations Council of Zambia and its clients resolve queries seamlessly from anywhere.
+                    </p>
+                    <div class="mt-auto">
+                        <span class="badge bg-success">ECZ Project</span>
+                        <span class="badge bg-primary">User Training</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 3 - Hackers in Residence -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/6f42c1/ffffff?text=HIR+Program" 
+                     class="card-img-top" 
+                     alt="Hackers in Residence Program">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">February 2022 - <span class="text-purple">Program</span></span>
+                    <h5 class="card-title mt-2">Hackers in Residence (HIR) Coding Academy</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        An agreement between BongoHive Consult and DoubleGDP for programme design, software development and support for the great which relocated to Nkwanshi from various parts of the country.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://bongohive.co.zm/hackers-in-residence-program/" target="_blank" class="btn btn-sm btn-outline-primary">
+                            Learn More <i class="fas fa-external-link-alt ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 4 - Technical Insight 1 -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/dc3545/ffffff?text=Django+Development" 
+                     class="card-img-top" 
+                     alt="Django Development">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">October 2, 2024 - <span class="text-danger">Django</span></span>
+                    <h5 class="card-title mt-2">Optimizing Django Queries with `select_related`</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        A deep dive into reducing database hits and improving API response times in large applications. Learn to tame the N+1 problem and optimize your Django ORM queries.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-sm btn-link text-primary p-0">Read Post <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 5 - Technical Insight 2 -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/fd7e14/ffffff?text=Async+Python" 
+                     class="card-img-top" 
+                     alt="Asynchronous Python">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">September 15, 2024 - <span class="text-warning">Async</span></span>
+                    <h5 class="card-title mt-2">Why Asynchronous Python is the Future of Web</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        Exploring the shift to ASGI, Django Channels, and their benefits for concurrent user connections and high-throughput services in modern web applications.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-sm btn-link text-primary p-0">Read Post <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post 6 - Technical Insight 3 -->
+        <div class="col-md-6 col-lg-4 animate-in">
+            <div class="card card-custom h-100">
+                <img src="https://placehold.co/400x250/20c997/ffffff?text=Docker+Deployment" 
+                     class="card-img-top" 
+                     alt="Docker Deployment">
+                <div class="card-body d-flex flex-column">
+                    <span class="text-muted small">August 28, 2024 - <span class="text-info">DevOps</span></span>
+                    <h5 class="card-title mt-2">Dockerizing Your Django Project for Production</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                        A step-by-step guide to containerizing your application for consistent deployment across various cloud environments and ensuring reproducible builds.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-sm btn-link text-primary p-0">Read Post <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-5 animate-in">
+        <a href="#" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-history me-2"></i>View Archive
+        </a>
+    </div>
+</div>
+</section>
+
+<style>
+.text-purple {
+    color: #6f42c1 !important;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+[data-bs-theme="dark"] .card-img-top {
+    border-bottom: 1px solid var(--border-color-dark);
+}
+
+.badge {
+    font-size: 0.7rem;
+    margin-right: 0.3rem;
+}
+</style>
+
+{% endblock content %}

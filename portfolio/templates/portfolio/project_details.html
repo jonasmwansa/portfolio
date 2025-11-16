@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ project.title }}</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+<body>
+    <h1>{{ project.title }}</h1>
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" width="400">
+    <p>{{ project.description }}</p>
+    {% if project.demo_link %}
+        <a href="{{ project.demo_link }}" target="_blank">Live Demo</a>
+    {% endif %}
+    {% if project.source_code %}
+        <a href="{{ project.source_code }}" target="_blank">Source Code</a>
+    {% endif %}
+    <p><a href="{% url 'home' %}">Back to home</a></p>
+</body>
+</html>

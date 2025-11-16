@@ -1,0 +1,190 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block dashboard_content %}
+<div class="row">
+    <!-- Stats Cards -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Total Visitors</h6>
+                        <h3 class="text-primary">1,247</h3>
+                        <span class="text-success small">
+                            <i class="fas fa-arrow-up"></i> 12% this week
+                        </span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-users text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Projects</h6>
+                        <h3 class="text-success">{{ projects_count }}</h3>
+                        <span class="text-muted small">Active projects</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Blog Posts</h6>
+                        <h3 class="text-info">{{ blog_count }}</h3>
+                        <span class="text-muted small">Published articles</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-blog text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Skills</h6>
+                        <h3 class="text-warning">{{ skills_count }}</h3>
+                        <span class="text-muted small">Technologies</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-code text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3 col-6">
+                        <a href="{% url 'portfolio:add_project' %}" class="btn btn-primary w-100">
+                            <i class="fas fa-plus me-2"></i>Add Project
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <a href="{% url 'portfolio:add_blog' %}" class="btn btn-info w-100">
+                            <i class="fas fa-edit me-2"></i>Write Blog
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <a href="{% url 'portfolio:manage_skills' %}" class="btn btn-success w-100">
+                            <i class="fas fa-cog me-2"></i>Manage Skills
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <a href="{% url 'portfolio:manage_about' %}" class="btn btn-warning w-100">
+                            <i class="fas fa-user-edit me-2"></i>Edit Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+<div class="row mt-4">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Recent Projects</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Technologies</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in recent_projects %}
+                            <tr>
+                                <td>{{ project.title }}</td>
+                                <td>
+                                    <span class="badge bg-light text-dark">{{ project.technologies }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success">Active</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="#" class="btn btn-outline-primary">Edit</a>
+                                        <a href="#" class="btn btn-outline-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">No projects yet</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">System Info</h5>
+            </div>
+            <div class="card-body">
+                <div class="system-info">
+                    <div class="info-item">
+                        <span class="label">Portfolio Version:</span>
+                        <span class="value">v2.1.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Last Backup:</span>
+                        <span class="value">2 hours ago</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Storage Used:</span>
+                        <span class="value">45.2 MB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Server Status:</span>
+                        <span class="value text-success">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,198 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Jonas | Full Stack Developer & Applications Developer{% endblock %}
+
+{% block content %}
+<!-- HERO SECTION -->
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-7">
+                <div class="hero-content">
+                    <p class="h5 text-primary mb-2 animate-in">👋 Hello, I'm</p>
+                    <h1 class="display-1 fw-bold mb-3 animate-in">Jonas.</h1>
+                    
+                    <h2 class="display-6 fw-light mb-4 text-secondary animate-in">
+                        Applications Developer & 
+                        <span class="text-primary fw-bold">Computer Engineer</span>
+                    </h2>
+                    
+                    <p class="lead mb-4 animate-in">
+                        Results-oriented Computer Engineer & Applications Developer with proven experience designing, developing, and deploying enterprise-level systems. Skilled in delivering secure, efficient, and user-centered applications that enhance institutional performance.
+                    </p>
+                    
+                    <div class="hero-badges mb-4 animate-in">
+                        <span class="hero-badge">🚀 Python/Django</span>
+                        <span class="hero-badge">⚡ C#/.NET</span>
+                        <span class="hero-badge">🔧 SQL Server</span>
+                        <span class="hero-badge">☁️ Linux Server</span>
+                    </div>
+                    
+                    <div class="d-flex flex-wrap gap-3 animate-in">
+                        <a href="{% url 'portfolio:projects' %}" class="btn btn-primary btn-lg shadow-sm">
+                            <i class="fas fa-rocket me-2"></i>View My Work
+                        </a>
+                        <a href="{% url 'portfolio:contact' %}" class="btn btn-outline-primary btn-lg shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-5 text-center animate-in">
+                <div class="hero-photo-container floating">
+                    <img src="https://placehold.co/500x500/007bff/ffffff?text=Professional+Photo" 
+                         alt="Jonas - Applications Developer" 
+                         class="hero-photo img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUICK STATS SECTION -->
+<section class="py-5 bg-light bg-opacity-10">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4 animate-in">
+                <div class="stats-number">3+</div>
+                <p class="text-muted">Years Experience</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4 animate-in">
+                <div class="stats-number">10+</div>
+                <p class="text-muted">Enterprise Systems</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4 animate-in">
+                <div class="stats-number">5+</div>
+                <p class="text-muted">Technologies</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4 animate-in">
+                <div class="stats-number">100%</div>
+                <p class="text-muted">Client Satisfaction</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PROJECTS PREVIEW -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-heading text-center animate-in">Enterprise Projects</h2>
+        <p class="text-center lead mb-5 animate-in">Key systems developed for Examinations Council of Zambia</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4 animate-in">
+                <div class="card card-custom h-100 text-center p-4">
+                    <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                    <h5>Self-Service Portal</h5>
+                    <p class="text-muted">Enhanced public access portal noted for its benefits to ECZ and public sector</p>
+                    <div class="tech-tags">
+                        <span class="badge bg-primary">Django</span>
+                        <span class="badge bg-info">Python</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 animate-in">
+                <div class="card card-custom h-100 text-center p-4">
+                    <i class="fas fa-file-alt fa-3x text-info mb-3"></i>
+                    <h5>E-Statement System</h5>
+                    <p class="text-muted">Upgraded with enhanced functionality and improved usability</p>
+                    <div class="tech-tags">
+                        <span class="badge bg-primary">C#/.NET</span>
+                        <span class="badge bg-success">SQL Server</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 animate-in">
+                <div class="card card-custom h-100 text-center p-4">
+                    <i class="fas fa-user-graduate fa-3x text-success mb-3"></i>
+                    <h5>Online Registration</h5>
+                    <p class="text-muted">OCR system with additional functionality for users</p>
+                    <div class="tech-tags">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-warning">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5 animate-in">
+            <a href="{% url 'portfolio:projects' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-folder-open me-2"></i>View All Projects
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- TECHNICAL EXPERTISE -->
+<section class="py-5 bg-light bg-opacity-10">
+    <div class="container">
+        <h2 class="section-heading text-center animate-in">Technical Expertise</h2>
+        
+        <div class="row g-4 mt-4">
+            <div class="col-md-6 animate-in">
+                <div class="card card-custom p-4 h-100">
+                    <h4 class="mb-4"><i class="fas fa-code text-primary me-2"></i>Development</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Python/Django</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>C#/.NET</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PHP</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>JavaScript</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>HTML/CSS</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bootstrap</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>React</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>REST APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 animate-in">
+                <div class="card card-custom p-4 h-100">
+                    <h4 class="mb-4"><i class="fas fa-database text-primary me-2"></i>Data & Systems</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>SQL Server</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Data Analysis</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Numpy</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>BigQuery</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Linux Server</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Windows Server</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Git/GitHub</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Excel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="py-5 text-white" style="background: linear-gradient(135deg, var(--primary-color), #0056b3);">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4 animate-in">Ready to Build Something Great?</h2>
+        <p class="lead mb-4 animate-in">Let's work together to bring your enterprise solutions to life!</p>
+        <a href="{% url 'portfolio:contact' %}" class="btn btn-light btn-lg btn-primary animate-in">
+            <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+        </a>
+    </div>
+</section>
+{% endblock %}

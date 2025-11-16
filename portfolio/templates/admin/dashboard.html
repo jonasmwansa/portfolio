@@ -1,0 +1,309 @@
+{% extends "admin/dashboard_base.html" %}
+{% load static %}
+
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block dashboard_content %}
+<div class="row">
+    <!-- Content Health Stats -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Portfolio Completeness</h6>
+                        <h3 class="text-primary">{% widthratio completed_sections total_sections 100 %}%</h3>
+                        <span class="text-muted small">{{ completed_sections }}/{{ total_sections }} sections</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-clipboard-check text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Featured Projects</h6>
+                        <h3 class="text-success">{{ featured_projects_count }}</h3>
+                        <span class="text-muted small">Showcase ready</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-star text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Skills Coverage</h6>
+                        <h3 class="text-info">{{ skills_categories_count }}</h3>
+                        <span class="text-muted small">Skill categories</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-layer-group text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Content Freshness</h6>
+                        <h3 class="text-warning">{{ days_since_update }}</h3>
+                        <span class="text-muted small">Days since update</span>
+                    </div>
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content Health & Quick Actions -->
+<div class="row">
+    <!-- Content Health -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Content Health</h5>
+            </div>
+            <div class="card-body">
+                <div class="content-health">
+                    <div class="health-item {% if projects_count >= 3 %}completed{% else %}pending{% endif %}">
+                        <i class="fas {% if projects_count >= 3 %}fa-check-circle text-success{% else %}fa-exclamation-circle text-warning{% endif %} me-2"></i>
+                        <span>Projects ({{ projects_count }}/3+ recommended)</span>
+                    </div>
+                    <div class="health-item {% if blog_count >= 1 %}completed{% else %}pending{% endif %}">
+                        <i class="fas {% if blog_count >= 1 %}fa-check-circle text-success{% else %}fa-exclamation-circle text-warning{% endif %} me-2"></i>
+                        <span>Blog Posts ({{ blog_count }}/1+ recommended)</span>
+                    </div>
+                    <div class="health-item {% if skills_count >= 8 %}completed{% else %}pending{% endif %}">
+                        <i class="fas {% if skills_count >= 8 %}fa-check-circle text-success{% else %}fa-exclamation-circle text-warning{% endif %} me-2"></i>
+                        <span>Skills ({{ skills_count }}/8+ recommended)</span>
+                    </div>
+                    <div class="health-item {% if certifications_count >= 1 %}completed{% else %}pending{% endif %}">
+                        <i class="fas {% if certifications_count >= 1 %}fa-check-circle text-success{% else %}fa-exclamation-circle text-warning{% endif %} me-2"></i>
+                        <span>Certifications ({{ certifications_count }}/1+ recommended)</span>
+                    </div>
+                    <div class="health-item {% if about_complete %}completed{% else %}pending{% endif %}">
+                        <i class="fas {% if about_complete %}fa-check-circle text-success{% else %}fa-exclamation-circle text-warning{% endif %} me-2"></i>
+                        <span>About Section Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Priority Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="priority-actions">
+                    {% if projects_count < 3 %}
+                    <div class="action-item priority-high">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                        <div>
+                            <strong>Add More Projects</strong>
+                            <small>Recommended: 3+ showcase projects</small>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Add</a>
+                    </div>
+                    {% endif %}
+
+                    {% if skills_count < 8 %}
+                    <div class="action-item priority-medium">
+                        <i class="fas fa-info-circle text-warning me-2"></i>
+                        <div>
+                            <strong>Expand Skills</strong>
+                            <small>Add more technologies (needed)</small>
+                        </div>
+                        <a href="{% url 'portfolio:manage-skills' %}" class="btn btn-sm btn-outline-primary">Manage</a>
+                    </div>
+                    {% endif %}
+
+                    {% if not about_complete %}
+                    <div class="action-item priority-high">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                        <div>
+                            <strong>Complete About Section</strong>
+                            <small>Add bio, photo, and contact info</small>
+                        </div>
+                        <a href="{% url 'portfolio:manage-about' %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                    </div>
+                    {% endif %}
+
+                    {% if blog_count == 0 %}
+                    <div class="action-item priority-medium">
+                        <i class="fas fa-info-circle text-warning me-2"></i>
+                        <div>
+                            <strong>Start Blogging</strong>
+                            <small>Share your knowledge and insights</small>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Write</a>
+                    </div>
+                    {% endif %}
+
+                    {% if days_since_update > 30 %}
+                    <div class="action-item priority-high">
+                        <i class="fas fa-sync-alt text-danger me-2"></i>
+                        <div>
+                            <strong>Update Portfolio</strong>
+                            <small>Content is {{ days_since_update }} days old</small>
+                        </div>
+                        <a href="{% url 'portfolio:manage-projects' %}" class="btn btn-sm btn-outline-primary">Refresh</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity & Skill Distribution -->
+<div class="row mt-4">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">Recent Activity</h5>
+                <span class="badge bg-light text-dark">Last 30 days</span>
+            </div>
+            <div class="card-body">
+                {% if recent_projects %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Last Updated</th>
+                                <th>Tech Stack</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in recent_projects %}
+                            <tr>
+                                <td>
+                                    <strong>{{ project.title }}</strong>
+                                    {% if project.is_featured %}
+                                    <i class="fas fa-star text-warning ms-1" title="Featured"></i>
+                                    {% endif %}
+                                </td>
+                                <td>{{ project.updated_at|timesince }} ago</td>
+                                <td>
+                                    <span class="badge bg-light text-dark">{{ project.technologies|truncatewords:3 }}</span>
+                                </td>
+                                <td>
+                                    {% if project.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">Draft</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="#" class="btn btn-outline-primary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-info" title="Preview">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">No Recent Activity</h5>
+                    <p class="text-muted">Start by adding your first project or updating your content.</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Add Project
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Skill Distribution</h5>
+            </div>
+            <div class="card-body">
+                {% if skill_categories %}
+                <div class="skill-categories">
+                    {% for category in skill_categories %}
+                    <div class="category-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="category-name">{{ category.name }}</span>
+                            <span class="category-count">{{ category.count }} skills</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar" style="width: {% widthratio category.count skills_count 100 %}%; background-color: {{ category.color }};"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-3">
+                    <i class="fas fa-code fa-2x text-muted mb-2"></i>
+                    <p class="text-muted mb-0">No skills added yet</p>
+                    <a href="{% url 'portfolio:manage-skills' %}" class="btn btn-sm btn-outline-primary mt-2">Add Skills</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Portfolio Snapshot</h5>
+            </div>
+            <div class="card-body">
+                <div class="quick-stats">
+                    <div class="stat-item d-flex justify-content-between py-2 border-bottom">
+                        <span>Total Content Items:</span>
+                        <strong>{{ total_content_items }}</strong>
+                    </div>
+                    <div class="stat-item d-flex justify-content-between py-2 border-bottom">
+                        <span>Last Content Update:</span>
+                        <strong>{{ last_update_date|date:"M d" }}</strong>
+                    </div>
+                    <div class="stat-item d-flex justify-content-between py-2 border-bottom">
+                        <span>Featured Items:</span>
+                        <strong>{{ featured_items_count }}</strong>
+                    </div>
+                    <div class="stat-item d-flex justify-content-between py-2">
+                        <span>Portfolio Score:</span>
+                        <strong class="text-success">{{ portfolio_score }}/100</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

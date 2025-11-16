@@ -1,0 +1,216 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Projects - Jonas | Enterprise Applications{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <nav aria-label="breadcrumb" class="mb-4 animate-in">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'portfolio:home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+            
+            <h1 class="display-4 fw-bold mb-3 text-center">Enterprise Projects</h1>
+            <p class="lead text-muted text-center">A curated list of key systems developed for Examinations Council of Zambia</p>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-4">
+        <!-- Self-Service Portal -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-globe fa-3x text-primary me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">Self-Service Portal</h5>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Developed to enhance public access to ECZ services, noted in appraisal for its significant benefits to both ECZ and the public sector. Provides seamless access to examination services and results.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">Django</span>
+                        <span class="badge bg-info">Python</span>
+                        <span class="badge bg-success">Mysql</span>
+                        <span class="badge bg-warning">Bootstrap</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Key Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Enhanced public access to examination services</li>
+                            <li>Reduced manual processing time by 60%</li>
+                            <li>Improved service delivery efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- E-Statement of Results System -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-file-alt fa-3x text-info me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">E-Statement of Results System</h5>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Upgraded system with enhanced functionality and improved usability for generating and managing electronic statements of results. Streamlined the results certification process.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">Python</span>
+                        <span class="badge bg-info">Django</span>
+                        <span class="badge bg-success">Mysql</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Key Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Improved system usability and performance</li>
+                            <li>Enhanced results processing accuracy</li>
+                            <li>Reduced manual intervention requirements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Candidate Registration System -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-user-graduate fa-3x text-success me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">Online Candidate Registration System (OCRS)</h5>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Upgraded system with additional functionality for users, improving the candidate registration experience and backend processing efficiency for examination administration.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">PHP</span>
+                        <span class="badge bg-warning">JavaScript</span>
+                        <span class="badge bg-info">MySQL</span>
+                        <span class="badge bg-secondary">jQuery</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Key Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Streamlined candidate registration process</li>
+                            <li>Enhanced user experience with additional features</li>
+                            <li>Improved data accuracy and validation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transcript of Results Module -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-scroll fa-3x text-warning me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">Transcript of Results Module</h5>
+                            <span class="badge bg-success">Completed</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Specialized module developed for Teacher Education programs, handling transcript generation, verification, and management with enhanced security features and validation.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">C#/.NET</span>
+                        <span class="badge bg-success">SQL Server</span>
+                        <span class="badge bg-danger">Security</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Key Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Automated transcript generation process</li>
+                            <li>Enhanced security and verification features</li>
+                            <li>Improved service for teacher education institutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Examination Processing System -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-cogs fa-3x text-secondary me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">Examination Processing System</h5>
+                            <span class="badge bg-primary">In Progress</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Currently contributing to the development of modules that improve efficiency and functionality in results processing. Focus on automation, accuracy, and performance optimization.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">C#/.NET</span>
+                        <span class="badge bg-success">SQL Server</span>
+                        <span class="badge bg-warning">Windows Services</span>
+                        <span class="badge bg-warning">Automation</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Expected Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Enhanced processing efficiency and speed</li>
+                            <li>Improved accuracy in results computation</li>
+                            <li>Reduced manual processing requirements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OMES & Related Applications -->
+        <div class="col-lg-6 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-network-wired fa-3x text-purple me-3"></i>
+                        <div>
+                            <h5 class="card-title mb-1">OMES & Related Applications</h5>
+                            <span class="badge bg-info">Maintenance</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-muted">Enhanced integration, usability, and system stability for OMES (Online Management and Examination System) and related applications. Focus on system optimization and user experience improvements.</p>
+                    <div class="tech-tags mb-3">
+                        <span class="badge bg-primary">Multiple Technologies</span>
+                        <span class="badge bg-success">Integration</span>
+                        <span class="badge bg-warning">Optimization</span>
+                    </div>
+                    <div class="project-impact">
+                        <h6>Key Impact:</h6>
+                        <ul class="text-muted small">
+                            <li>Improved system integration and stability</li>
+                            <li>Enhanced user experience across platforms</li>
+                            <li>Better system performance and reliability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5 animate-in">
+        <div class="card card-custom">
+            <div class="card-body py-5">
+                <h3 class="mb-3">Have a Project in Mind?</h3>
+                <p class="text-muted mb-4">Let's discuss how we can build efficient, scalable enterprise solutions together.</p>
+                <a href="{% url 'portfolio:contact' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

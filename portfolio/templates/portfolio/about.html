@@ -1,0 +1,547 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}About Me - Jonas | Applications Developer{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <nav aria-label="breadcrumb" class="mb-4 animate-in">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'portfolio:home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Me</li>
+                </ol>
+            </nav>
+            
+            <h1 class="display-4 fw-bold mb-3 text-center">About Me</h1>
+            <p class="lead text-muted text-center">Get to know my professional journey, expertise, and technical skills</p>
+        </div>
+    </div>
+
+    <!-- Professional Profile -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 animate-in">
+            <img src="https://placehold.co/500x600/007bff/ffffff?text=Professional+Profile" 
+                 alt="Jonas - Professional Profile" 
+                 class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-6 animate-in">
+            <h2 class="mb-4">Professional Profile</h2>
+            <p class="lead mb-4">Results-oriented Computer Engineer & Applications Developer with proven experience designing, developing, and deploying enterprise-level systems at the Examinations Council of Zambia (ECZ).</p>
+            
+            <p class="mb-4">Skilled in delivering secure, efficient, and user-centered applications that enhance institutional performance. Strong background in software development, data analytics, and systems integration, with a track record of implementing solutions that improve accuracy, transparency, and service delivery.</p>
+            
+            <p class="mb-4">Passionate about leveraging data and technology to modernize processes and support decision-making.</p>
+            
+            <div class="d-flex gap-3">
+                <a href="{% url 'portfolio:projects' %}" class="btn btn-primary">View My Work</a>
+                <a href="{% static 'docs/resume.pdf' %}" class="btn btn-outline-primary" download>
+                    <i class="fas fa-download me-2"></i>Download CV
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Skills Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-5">Technical Skills & Expertise</h2>
+            
+            <!-- Skills by Category -->
+            <div class="row mb-5">
+                <!-- Software Development -->
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4 animate-in"><i class="fas fa-code text-primary me-2"></i>Software Development</h3>
+                    <div class="skill-category">
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">Python & Django</span>
+                            </div>
+                            <p class="text-muted small mb-0">Web applications, REST APIs, backend systems, Django ORM</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">C# & .NET Framework</span>
+                            </div>
+                            <p class="text-muted small mb-0">Windows applications, Windows Services, enterprise systems, desktop apps</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">PHP</span>
+                            </div>
+                            <p class="text-muted small mb-0">Web development, legacy system maintenance, LAMP stack</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">JavaScript & React</span>
+                            </div>
+                            <p class="text-muted small mb-0">Frontend development, interactive UIs, modern web apps, component-based architecture</p>
+                        </div>
+
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">Payment Gateway Integration</span>
+                            </div>
+                            <p class="text-muted small mb-0">Secure payment processing, API integration, transaction management, webhook handling, PCI compliance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases & Data Analysis -->
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4 animate-in"><i class="fas fa-database text-primary me-2"></i>Databases & Data Analysis</h3>
+                    <div class="skill-category">
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">Microsoft SQL Server</span>
+                            </div>
+                            <p class="text-muted small mb-0">Database design, optimization, stored procedures, SSMS</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">SQL & Query Optimization</span>
+                            </div>
+                            <p class="text-muted small mb-0">Complex queries, performance tuning, data analysis, indexing</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">Data Analysis (Numpy, Excel)</span>
+                            </div>
+                            <p class="text-muted small mb-0">Data processing, analysis, visualization, statistical analysis</p>
+                        </div>
+                        
+                        <div class="skill-item mb-3 animate-in">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="fw-semibold">BigQuery</span>
+                            </div>
+                            <p class="text-muted small mb-0">Big data analysis, cloud data processing, data warehousing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Systems & Tools -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4 animate-in"><i class="fas fa-server text-primary me-2"></i>Systems & Tools</h3>
+                    <div class="row row-cols-2 row-cols-md-4 g-4">
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fab fa-linux fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Linux Server Admin</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fab fa-windows fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Windows Server</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fab fa-git-alt fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Git & GitHub</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fas fa-cogs fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Windows Services</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fas fa-rocket fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">App Deployment</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fab fa-figma fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Figma</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fas fa-tasks fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Visual Studio</h6>
+                            </div>
+                        </div>
+                        <div class="col animate-in">
+                            <div class="card card-custom text-center p-3 h-100">
+                                <i class="fas fa-file-alt fa-2x text-primary mb-2"></i>
+                                <h6 class="mb-0">Technical Docs</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain Knowledge -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom animate-in">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4 text-center"><i class="fas fa-brain text-primary me-2"></i>Domain Knowledge</h4>
+                            <div class="row text-center">
+                                <div class="col-md-3 col-6 mb-3">
+                                    <i class="fas fa-search fa-2x text-primary mb-2"></i>
+                                    <h6>Feasibility Studies</h6>
+                                    <small class="text-muted">Project analysis & planning</small>
+                                </div>
+                                <div class="col-md-3 col-6 mb-3">
+                                    <i class="fas fa-list-alt fa-2x text-primary mb-2"></i>
+                                    <h6>Requirements Gathering</h6>
+                                    <small class="text-muted">Stakeholder collaboration</small>
+                                </div>
+                                <div class="col-md-3 col-6 mb-3">
+                                    <i class="fas fa-pencil-ruler fa-2x text-primary mb-2"></i>
+                                    <h6>System Design</h6>
+                                    <small class="text-muted">Architecture & planning</small>
+                                </div>
+                                <div class="col-md-3 col-6 mb-3">
+                                    <i class="fas fa-graduation-cap fa-2x text-primary mb-2"></i>
+                                    <h6>User Training</h6>
+                                    <small class="text-muted">Knowledge transfer</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-5">Professional Experience</h2>
+            
+            <div class="timeline">
+                <!-- Current Role -->
+                <div class="timeline-item animate-in">
+                    <div class="timeline-date">Nov 2022 – Present</div>
+                    <div class="timeline-content">
+                        <h5>Applications Developer - Examinations Council of Zambia</h5>
+                        <ul class="text-muted">
+                            <li>Undertook feasibility studies and requirements analysis for new applications in collaboration with stakeholders</li>
+                            <li>Designed, developed, coded, tested, and deployed applications aligned with ECZ's operational needs</li>
+                            <li>Developed Self-Service Portal – noted in appraisal for its benefits to ECZ and the public sector</li>
+                            <li>Upgraded E-Statement of Results System with enhanced functionality, improving usability</li>
+                            <li>Enhanced Online Candidate Registration System (OCRS) with additional functionality</li>
+                            <li>Developed Transcript of Results Module for Teacher Education</li>
+                            <li>Contributed to OMES and E-Certificate Systems development</li>
+                            <li>Currently developing Examination Processing System modules to improve efficiency</li>
+                            <li>Enhanced OMES and related applications for better integration and stability</li>
+                            <li>Prepared technical documentation and gap analysis reports</li>
+                            <li>Provided technical support and resolved software defects</li>
+                            <li>Developed and deployed Windows Services to automate backend processes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Previous Role -->
+                <div class="timeline-item animate-in">
+                    <div class="timeline-date">Feb 2022 – Jul 2022</div>
+                    <div class="timeline-content">
+                        <h5>Full Stack Developer Trainee - Dufuna & Bongohive Collaboration</h5>
+                        <ul class="text-muted">
+                            <li>Worked in cross-border teams applying industry best practices in full-stack development</li>
+                            <li>Designed and implemented RESTful APIs for scalable web applications</li>
+                            <li>Collaborated with UI/UX designers to deliver intuitive interfaces</li>
+                            <li>Applied version control through Git and peer-reviewed coding practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education & Certifications -->
+    <div class="row">
+        <div class="col-lg-6 mb-4 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="fas fa-graduation-cap text-primary me-2"></i>Education Journey</h4>
+                    
+                    <!-- Education Pipeline -->
+                    <div class="education-pipeline">
+                        <!-- Highest Qualification -->
+                        <div class="education-step current animate-in">
+                            <div class="step-marker">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="step-content">
+                                <h6 class="mb-1 fw-bold">Bachelor of Science in Computer Engineering</h6>
+                                <p class="text-muted mb-1">The Copperbelt University, Kitwe, Zambia</p>
+                                <small class="text-primary">2017 – 2021</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Previous Qualification -->
+                        <div class="education-step completed animate-in">
+                            <div class="step-marker">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="step-content">
+                                <h6 class="mb-1">Secondary Education Certificate</h6>
+                                <p class="text-muted mb-1">Mungwi Technical Secondary, Kasama, Zambia</p>
+                                <small class="text-muted">2012 - 2014</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mb-4 animate-in">
+            <div class="card card-custom h-100">
+                <div class="card-body">
+                    <h4 class="card-title mb-4"><i class="fas fa-award text-primary me-2"></i>Certifications</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>Version Control</strong><br>
+                            <small class="text-muted">Meta (September 2024)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>Data Analysis</strong><br>
+                            <small class="text-muted">Google (December 2024)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>SQL for Data Science</strong><br>
+                            <small class="text-muted">University of California Davis (August 2024)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>JavaScript Programming</strong><br>
+                            <small class="text-muted">Meta (August 2022)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>SQL Server</strong><br>
+                            <small class="text-muted">University of Zambia (November 2024)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>C# Programming</strong><br>
+                            <small class="text-muted">University of Zambia (November 2024)</small>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-certificate text-success me-2"></i>
+                            <strong>Linux Server Administration</strong><br>
+                            <small class="text-muted">University of Zambia (November 2024)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- CALL TO ACTION -->
+<section class="py-5 text-white" style="background: linear-gradient(135deg, var(--primary-color), #0056b3);">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4 animate-in">Ready to Build Something Great?</h2>
+        <p class="lead mb-4 animate-in">Let's work together to bring your enterprise solutions to life!</p>
+        <a href="{% url 'portfolio:contact' %}" class="btn btn-light btn-lg btn-primary animate-in">
+            <i class="fas fa-paper-plane me-2"></i>Start a Conversation
+        </a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary-color);
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+    
+    .timeline-date {
+        flex: 0 0 150px;
+        text-align: right;
+        padding-right: 2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    
+    .timeline-content {
+        flex: 1;
+        padding-left: 2rem;
+        background: var(--card-bg-light);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-color-light);
+    }
+    
+    .timeline-content ul {
+        margin-bottom: 0;
+    }
+    
+    .timeline-content li {
+        margin-bottom: 0.5rem;
+    }
+    
+    [data-bs-theme="dark"] .timeline-content {
+        background: var(--card-bg-dark);
+        border-color: var(--border-color-dark);
+    }
+    
+    /* Education Pipeline Styles */
+    .education-pipeline {
+        position: relative;
+        padding-left: 2rem;
+    }
+    
+    .education-pipeline::before {
+        content: '';
+        position: absolute;
+        left: 1rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--primary-color), #e9ecef);
+        z-index: 1;
+    }
+    
+    .education-step {
+        position: relative;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .step-marker {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 1rem;
+        z-index: 2;
+        flex-shrink: 0;
+    }
+    
+    .education-step.completed .step-marker {
+        background: #28a745;
+    }
+    
+    .education-step.current .step-marker {
+        background: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    }
+    
+    .step-content {
+        flex: 1;
+    }
+    
+    .education-step.current h6 {
+        color: var(--primary-color);
+    }
+    
+    .education-step.completed h6 {
+        color: #6c757d;
+    }
+    
+    /* Skills Styles */
+    .skill-item {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: var(--card-bg-light);
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-color-light);
+        transition: all 0.3s ease;
+    }
+    
+    .skill-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-bs-theme="dark"] .skill-item {
+        background: var(--card-bg-dark);
+        border-color: var(--border-color-dark);
+    }
+    
+    @media (max-width: 768px) {
+        .timeline::before {
+            left: 20px;
+        }
+        
+        .timeline-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .timeline-date {
+            text-align: left;
+            padding-right: 0;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        .timeline-content {
+            padding-left: 2rem;
+            margin-left: 20px;
+        }
+        
+        .education-pipeline {
+            padding-left: 1.5rem;
+        }
+        
+        .education-pipeline::before {
+            left: 0.75rem;
+        }
+        
+        .step-marker {
+            width: 2rem;
+            height: 2rem;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,196 @@
+{% load static %}
+{% load custom_filters %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio Dashboard{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <div class="dashboard-container">
+        <nav class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <h3>
+                    
+                    
+
+                    <a href="{% url 'portfolio:admin-dashboard' %}" class="nav-link {% if request.path == '/admin/' %}active{% endif %}">
+                       <i class="fas fa-tachometer-alt me-2"></i>
+                        Dashboard
+                    </a>
+                </h3>
+
+
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:admin-dashboard' %}" class="nav-link {% if request.path == '/admin/' %}active{% endif %}">
+                        <i class="fas fa-chart-bar"></i>
+                        Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:manage-projects' %}" class="nav-link {% if 'admin/projects' in request.path %}active{% endif %}">
+                        <i class="fas fa-briefcase"></i>
+                        Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:manage-skills' %}" class="nav-link {% if 'admin/skills' in request.path %}active{% endif %}">
+                        <i class="fas fa-code"></i>
+                        Skills
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:manage-blog' %}" class="nav-link {% if 'admin/blog' in request.path %}active{% endif %}">
+                        <i class="fas fa-blog"></i>
+                        Blog Posts
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:manage-about' %}" class="nav-link {% if 'admin/about' in request.path %}active{% endif %}">
+                        <i class="fas fa-user"></i>
+                        About Me
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:manage-certifications' %}" class="nav-link {% if 'admin/certifications' in request.path %}active{% endif %}">
+                        <i class="fas fa-certificate"></i>
+                        Certifications
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="{% url 'portfolio:home' %}" class="nav-link text-warning" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Site
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" id="logout-btn" class="nav-link text-danger">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Top Bar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-content">
+                    <h4 class="page-title">{% block page_title %}Dashboard Overview{% endblock %}</h4>
+                    <div class="user-info">
+                        <span class="username">Welcome, {{ request.user.username }}</span>
+                        <div class="avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="dashboard-content">
+                {% if messages %}
+                <div class="messages-container">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% block dashboard_content %}
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Dashboard JS -->
+    <script src="{% static 'js/dashboard.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const logoutBtn = document.getElementById("logout-btn");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will be logged out of the dashboard.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#6c757d",
+                confirmButtonText: "Logout",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{% url 'portfolio:admin-logout' %}";
+                }
+            });
+        });
+    }
+
+
+
+
+const root = document.documentElement;
+    const toggle = document.getElementById("theme-switch");
+
+    // Load saved mode (default = light)
+    const saved = localStorage.getItem("theme-mode") || "light";
+    applyTheme(saved);
+
+    toggle.addEventListener("click", () => {
+        const newMode = root.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(newMode);
+        localStorage.setItem("theme-mode", newMode);
+    });
+
+    function applyTheme(mode) {
+        root.dataset.theme = mode;
+
+        // swap icon
+        if (mode === "dark") {
+            toggle.classList.replace("fa-moon", "fa-sun");
+        } else {
+            toggle.classList.replace("fa-sun", "fa-moon");
+        }
+    }
+
+
+});
+</script>
+
+</body>
+</html>
