@@ -1,16 +1,15 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
+from decouple import config
 
 # --- BASE DIR & ENV ---
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')
+
 
 # --- SECURITY ---
 # IMPORTANT: Temporarily set DEBUG=True to see the files, then turn it off when you deploy
 DEBUG = True
-SECRET_KEY = os.getenv('SECRET_KEY', 'unsafe-default-key')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+SECRET_KEY = config('SECRET_KEY', 'unsafe-default-key')
 
 # --- APPLICATIONS ---
 INSTALLED_APPS = [
@@ -58,15 +57,15 @@ TEMPLATES = [
 # --- DATABASES (omitted for brevity) ---
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.getenv('DB_NAME', BASE_DIR / 'db.sqlite3'),
-        'USER': os.getenv('DB_USER', ''),
-        'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', ''),
+        'ENGINE': config('DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': config('DB_NAME', BASE_DIR / 'db.sqlite3'),
+        'USER': config('DB_USER', ''),
+        'PASSWORD': config('DB_PASSWORD', ''),
+        'HOST': config('DB_HOST', ''),
+        'PORT': config('DB_PORT', ''),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        } if 'mysql' in os.getenv('DB_ENGINE', '') else {},
+        } if 'mysql' in config('DB_ENGINE', '') else {},
     }
 }
 
@@ -79,8 +78,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # --- INTERNATIONALIZATION (omitted for brevity) ---
-LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'en-us')
-TIME_ZONE = os.getenv('TIME_ZONE', 'UTC')
+LANGUAGE_CODE = config('LANGUAGE_CODE', 'en-us')
+TIME_ZONE = config('TIME_ZONE', 'UTC')
 USE_I18N = True
 USE_TZ = True
 
@@ -103,14 +102,19 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+
+
+ALLOWED_HOSTS=[
+    "127.0.0.1","localhost"]
+
 # --- EMAIL SETTINGS (omitted for brevity) ---
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
-EMAIL_HOST = os.getenv('EMAIL_HOST', '')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() == 'true'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
+EMAIL_BACKEND = config('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', '')
+EMAIL_PORT = int(config('EMAIL_PORT', 587))
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', 'True').lower() == 'true'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
 
 # --- DEFAULTS ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

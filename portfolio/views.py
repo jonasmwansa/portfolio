@@ -38,22 +38,22 @@ def blogs_view(request):
     # Later, you will fetch blog previews here.
     return render(request, 'portfolio/blogs.html')
 
-def contact_view(request):
-    """The dedicated Contact form page (handles GET and POST)."""
-    if request.method == 'POST':
-        # NOTE: This is a simplified placeholder for now.
-        # In a real application, you would:
-        # 1. Validate the form data.
-        # 2. Save the message to the database or send an email.
+# def contact_view(request):
+#     """The dedicated Contact form page (handles GET and POST)."""
+#     if request.method == 'POST':
+#         # NOTE: This is a simplified placeholder for now.
+#         # In a real application, you would:
+#         # 1. Validate the form data.
+#         # 2. Save the message to the database or send an email.
         
-        # For now, let's just confirm receipt (do not use alert() in production!)
-        # We will implement a proper success message later.
+#         # For now, let's just confirm receipt (do not use alert() in production!)
+#         # We will implement a proper success message later.
         
-        # Simulating successful form submission:
-        # print(f"Received message from {request.POST.get('name')}")
-        return redirect('portfolio:contact') # Redirect to prevent resubmission
+#         # Simulating successful form submission:
+#         # print(f"Received message from {request.POST.get('name')}")
+#         return redirect('portfolio:contact') # Redirect to prevent resubmission
         
-    return render(request, 'portfolio/contact.html')
+#     return render(request, 'portfolio/contact.html')
 
 # --- Detail Views (Placeholders) ---
 
@@ -69,7 +69,7 @@ def blog_details_view(request, pk):
     # Replace HttpResponse with render(request, 'portfolio/blog_details.html', ...) later
     
 
-def contact(request):
+def contact_view(request):
     if request.method == 'POST':
         # Check if it's an AJAX request
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
