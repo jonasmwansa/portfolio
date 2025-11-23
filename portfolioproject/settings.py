@@ -124,7 +124,6 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
-# --- DEV STATIC SERVING (for runserver) ---
 if DEBUG:
     from django.conf.urls.static import static
     from portfolioproject import urls as project_urls
