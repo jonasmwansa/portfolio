@@ -1,7 +1,7 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
 
-{% block title %}Jonas | Full Stack Developer & Applications Developer{% endblock %}
+{% block title %}Jonas | Software Engineer & Applications Developer{% endblock %}
 
 {% block content %}
 <!-- HERO SECTION -->
@@ -14,19 +14,20 @@
                     <h1 class="display-1 fw-bold mb-3 animate-in">Jonas.</h1>
                     
                     <h2 class="display-6 fw-light mb-4 text-secondary animate-in">
-                        Applications Developer & 
-                        <span class="text-primary fw-bold">Computer Engineer</span>
+                        Software Engineer & 
+                        <span class="text-primary fw-bold">Applications Developer</span>
                     </h2>
                     
                     <p class="lead mb-4 animate-in">
-                        Results-oriented Computer Engineer & Applications Developer with proven experience designing, developing, and deploying enterprise-level systems. Skilled in delivering secure, efficient, and user-centered applications that enhance institutional performance.
+                        I design and build reliable, secure, and scalable systems—ranging from public-facing portals to mission-critical enterprise applications. My focus is on clean architecture, automation, and delivering production-ready solutions powered by modern engineering practices.
                     </p>
                     
                     <div class="hero-badges mb-4 animate-in">
-                        <span class="hero-badge">🚀 Python/Django</span>
+                        <span class="hero-badge">🐍 Python/Django</span>
                         <span class="hero-badge">⚡ C#/.NET</span>
-                        <span class="hero-badge">🔧 SQL Server</span>
-                        <span class="hero-badge">☁️ Linux Server</span>
+                        <span class="hero-badge">🧰 SQL Server</span>
+                        <span class="hero-badge">🐧 Linux & DevOps</span>
+                        <span class="hero-badge">🔁 CI/CD</span>
                     </div>
                     
                     <div class="d-flex flex-wrap gap-3 animate-in">
@@ -42,7 +43,7 @@
             
             <div class="col-lg-5 text-center animate-in">
                 <div class="hero-photo-container floating">
-                    <img src="https://placehold.co/500x500/007bff/ffffff?text=Professional+Photo" 
+                    <img src="{% static 'images/image.jpg' %}" 
                          alt="Jonas - Applications Developer" 
                          class="hero-photo img-fluid rounded-3 shadow-lg">
                 </div>
@@ -57,19 +58,19 @@
         <div class="row text-center">
             <div class="col-md-3 col-6 mb-4 animate-in">
                 <div class="stats-number">3+</div>
-                <p class="text-muted">Years Experience</p>
+                <p class="text-muted">Years in Engineering</p>
             </div>
             <div class="col-md-3 col-6 mb-4 animate-in">
                 <div class="stats-number">10+</div>
-                <p class="text-muted">Enterprise Systems</p>
+                <p class="text-muted">Enterprise Systems Delivered</p>
             </div>
             <div class="col-md-3 col-6 mb-4 animate-in">
                 <div class="stats-number">5+</div>
-                <p class="text-muted">Technologies</p>
+                <p class="text-muted">Core Production Technologies</p>
             </div>
             <div class="col-md-3 col-6 mb-4 animate-in">
                 <div class="stats-number">100%</div>
-                <p class="text-muted">Client Satisfaction</p>
+                <p class="text-muted">Delivery & Uptime on Key Projects</p>
             </div>
         </div>
     </div>
@@ -79,14 +80,18 @@
 <section class="py-5">
     <div class="container">
         <h2 class="section-heading text-center animate-in">Enterprise Projects</h2>
-        <p class="text-center lead mb-5 animate-in">Key systems developed for Examinations Council of Zambia</p>
+        <p class="text-center lead mb-5 animate-in">
+            High-impact systems engineered for the Examinations Council of Zambia
+        </p>
         
         <div class="row g-4">
             <div class="col-md-4 animate-in">
                 <div class="card card-custom h-100 text-center p-4">
                     <i class="fas fa-globe fa-3x text-primary mb-3"></i>
                     <h5>Self-Service Portal</h5>
-                    <p class="text-muted">Enhanced public access portal noted for its benefits to ECZ and public sector</p>
+                    <p class="text-muted">
+                        Public-facing platform enabling secure access to examination services nationwide.
+                    </p>
                     <div class="tech-tags">
                         <span class="badge bg-primary">Django</span>
                         <span class="badge bg-info">Python</span>
@@ -98,10 +103,12 @@
                 <div class="card card-custom h-100 text-center p-4">
                     <i class="fas fa-file-alt fa-3x text-info mb-3"></i>
                     <h5>E-Statement System</h5>
-                    <p class="text-muted">Upgraded with enhanced functionality and improved usability</p>
+                    <p class="text-muted">
+                        Re-engineered to improve reliability, usability, data accuracy, and system performance.
+                    </p>
                     <div class="tech-tags">
-                        <span class="badge bg-primary">C#/.NET</span>
-                        <span class="badge bg-success">SQL Server</span>
+                        <span class="badge bg-primary">Django</span>
+                        <span class="badge bg-success">Python</span>
                     </div>
                 </div>
             </div>
@@ -110,7 +117,9 @@
                 <div class="card card-custom h-100 text-center p-4">
                     <i class="fas fa-user-graduate fa-3x text-success mb-3"></i>
                     <h5>Online Registration</h5>
-                    <p class="text-muted">OCR system with additional functionality for users</p>
+                    <p class="text-muted">
+                        Enhanced with improved functionality, workflow optimization, and mobile-first responsiveness.
+                    </p>
                     <div class="tech-tags">
                         <span class="badge bg-primary">PHP</span>
                         <span class="badge bg-warning">JavaScript</span>
@@ -139,18 +148,20 @@
                     <div class="row">
                         <div class="col-6">
                             <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Python/Django</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>C#/.NET</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Python / Django</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>C# / .NET</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PHP</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>JavaScript</li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>HTML/CSS</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>HTML / CSS</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bootstrap</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>React</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>REST APIs</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Git / GitHub</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>CI/CD Pipelines</li>
                             </ul>
                         </div>
                     </div>
@@ -165,16 +176,14 @@
                             <ul class="list-unstyled">
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>SQL Server</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Data Analysis</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Numpy</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>NumPy</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>BigQuery</li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Linux Server</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Linux Administration</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Windows Server</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Git/GitHub</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Excel</li>
                             </ul>
                         </div>
                     </div>
@@ -189,7 +198,9 @@
 <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--primary-color), #0056b3);">
     <div class="container text-center">
         <h2 class="display-5 fw-bold mb-4 animate-in">Ready to Build Something Great?</h2>
-        <p class="lead mb-4 animate-in">Let's work together to bring your enterprise solutions to life!</p>
+        <p class="lead mb-4 animate-in">
+            Let's collaborate on secure, scalable, and production-ready systems.
+        </p>
         <a href="{% url 'portfolio:contact' %}" class="btn btn-light btn-lg btn-primary animate-in">
             <i class="fas fa-paper-plane me-2"></i>Start a Conversation
         </a>
