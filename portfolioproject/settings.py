@@ -102,7 +102,7 @@ STATICFILES_STORAGE = (
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    config('RAILWAY_APP_URL', 'portfolio-production-3e1e.up.railway.app')
+    config('RAILWAY_APP_URL', 'jmwansa.up.railway.app')
 ]
 
 # --- EMAIL ---
