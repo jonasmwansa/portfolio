@@ -105,7 +105,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 ALLOWED_HOSTS=[
-    "127.0.0.1","localhost"]
+    "127.0.0.1","localhost", 'portfolio-production-3e1e.up.railway.app']
 
 # --- EMAIL SETTINGS (omitted for brevity) ---
 EMAIL_BACKEND = config('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
