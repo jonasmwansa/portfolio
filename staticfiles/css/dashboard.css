@@ -1,0 +1,344 @@
+:root {
+    --sidebar-width: 280px;
+    --topbar-height: 70px;
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4cc9f0;
+    --danger-color: #f72585;
+    --warning-color: #f8961e;
+    --info-color: #4895ef;
+    --dark-color: #2b2d42;
+    --light-color: #f8f9fa;
+    --sidebar-bg: #2b2d42;
+    --sidebar-text: #adb5bd;
+    --sidebar-active: #4361ee;
+}
+
+.dashboard-body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fb;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #3d405b;
+}
+
+.sidebar-header h3 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0.25rem 0.75rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: #3d405b;
+    color: white;
+}
+
+.nav-link.active {
+    background: var(--sidebar-active);
+    color: white;
+}
+
+.nav-link i {
+    width: 20px;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.nav-divider {
+    height: 1px;
+    background: #3d405b;
+    margin: 1rem 0.75rem;
+}
+
+/* Main Content Area */
+.dashboard-main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+}
+
+.dashboard-topbar {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
+    height: var(--topbar-height);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.topbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title {
+    color: var(--dark-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.username {
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.avatar {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    padding: 1.5rem;
+}
+
+/* Stat Cards */
+.stat-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card .card-title {
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+
+/* Tables */
+.table-responsive {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* System Info */
+.system-info .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.system-info .info-item:last-child {
+    border-bottom: none;
+}
+
+.system-info .label {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.system-info .value {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+/* Messages */
+.messages-container {
+    margin-bottom: 1.5rem;
+}
+
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+/* Action Buttons */
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+    
+    .dashboard-sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .dashboard-main {
+        margin-left: 0;
+    }
+}
+
+
+
+/* Content Health Styles */
+.content-health .health-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.content-health .health-item:last-child {
+    border-bottom: none;
+}
+
+.content-health .health-item.completed {
+    color: #198754;
+}
+
+.content-health .health-item.pending {
+    color: #6c757d;
+}
+
+/* Priority Actions */
+.priority-actions .action-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    background: #f8f9fa;
+    border-left: 4px solid #6c757d;
+}
+
+.priority-actions .action-item.priority-high {
+    border-left-color: #dc3545;
+    background: #f8d7da;
+}
+
+.priority-actions .action-item.priority-medium {
+    border-left-color: #ffc107;
+    background: #fff3cd;
+}
+
+.priority-actions .action-item:last-child {
+    margin-bottom: 0;
+}
+
+.priority-actions .action-item div {
+    flex-grow: 1;
+    margin: 0 1rem;
+}
+
+.priority-actions .action-item strong {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.priority-actions .action-item small {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* Skill Categories */
+.skill-categories .category-item {
+    padding: 0.5rem 0;
+}
+
+.category-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.category-count {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* Quick Stats */
+.quick-stats .stat-item {
+    font-size: 0.9rem;
+}

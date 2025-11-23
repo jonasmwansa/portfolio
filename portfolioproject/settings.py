@@ -22,7 +22,6 @@ INSTALLED_APPS = [
 # --- MIDDLEWARE ---
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files efficiently
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -30,6 +29,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# WhiteNoise only in production
+if not DEBUG:
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # --- URL & WSGI ---
 ROOT_URLCONF = 'portfolioproject.urls'
@@ -89,14 +92,17 @@ STATICFILES_DIRS = [BASE_DIR / 'portfolio' / 'static']  # Dev static files
 STATIC_ROOT = BASE_DIR / 'staticfiles'                  # Collected static files
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# WhiteNoise: gzip + caching
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Use WhiteNoise for production
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage' if not DEBUG 
+    else 'django.contrib.staticfiles.storage.StaticFilesStorage'
+)
 
 # --- SECURITY / HOSTS ---
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    config('RAILWAY_APP_URL', 'portfolio-production-3e1e.up.railway.app')  # Your Railway app URL
+    config('RAILWAY_APP_URL', 'portfolio-production-3e1e.up.railway.app')
 ]
 
 # --- EMAIL ---
@@ -117,3 +123,11 @@ if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+# --- DEV STATIC SERVING (for runserver) ---
+if DEBUG:
+    from django.conf.urls.static import static
+    from portfolioproject import urls as project_urls
+
+    project_urls.urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
+    project_urls.urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
