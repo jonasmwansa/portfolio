@@ -8,7 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # --- SECURITY ---
 # IMPORTANT: Temporarily set DEBUG=True to see the files, then turn it off when you deploy
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 SECRET_KEY = config('SECRET_KEY', 'unsafe-default-key')
 
 # --- APPLICATIONS ---
@@ -25,6 +26,7 @@ INSTALLED_APPS = [
 # --- MIDDLEWARE ---
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,6 +103,10 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Enable gzip and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
