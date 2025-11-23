@@ -5,16 +5,12 @@ from decouple import config
 # --- BASE DIR & ENV ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # --- SECURITY ---
-# IMPORTANT: Temporarily set DEBUG=True to see the files, then turn it off when you deploy
 DEBUG = config('DEBUG', default=False, cast=bool)
-
 SECRET_KEY = config('SECRET_KEY', 'unsafe-default-key')
 
 # --- APPLICATIONS ---
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -26,7 +22,7 @@ INSTALLED_APPS = [
 # --- MIDDLEWARE ---
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files efficiently
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,7 +52,7 @@ TEMPLATES = [
     },
 ]
 
-# --- DATABASES (omitted for brevity) ---
+# --- DATABASE ---
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE', 'django.db.backends.sqlite3'),
@@ -71,7 +67,7 @@ DATABASES = {
     }
 }
 
-# --- PASSWORD VALIDATORS (omitted for brevity) ---
+# --- PASSWORD VALIDATORS ---
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -79,41 +75,31 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# --- INTERNATIONALIZATION (omitted for brevity) ---
+# --- INTERNATIONALIZATION ---
 LANGUAGE_CODE = config('LANGUAGE_CODE', 'en-us')
 TIME_ZONE = config('TIME_ZONE', 'UTC')
 USE_I18N = True
 USE_TZ = True
 
-# ----------------------------------------------------
-# STATIC FILE CONFIGURATION FIX
-# ----------------------------------------------------
-
+# --- STATIC & MEDIA ---
 STATIC_URL = '/static/'
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
 
-# 1. DEVELOPMENT LOOKUP PATHS: Add the 'portfolio/static' folder
-# This tells Django where to look for static files during development
-STATICFILES_DIRS = [
-    BASE_DIR / 'portfolio' / 'static',
-]
+STATICFILES_DIRS = [BASE_DIR / 'portfolio' / 'static']  # Dev static files
+STATIC_ROOT = BASE_DIR / 'staticfiles'                  # Collected static files
+MEDIA_ROOT = BASE_DIR / 'media'
 
-# 2. DEPLOYMENT ROOT: Directory where 'python manage.py collectstatic' will gather files.
-# Set this to a folder in your project root, outside the app.
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-
-# Enable gzip and caching
+# WhiteNoise: gzip + caching
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# --- SECURITY / HOSTS ---
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    config('RAILWAY_APP_URL', 'portfolio-production-3e1e.up.railway.app')  # Your Railway app URL
+]
 
-
-ALLOWED_HOSTS=[
-    "127.0.0.1","localhost", 'portfolio-production-3e1e.up.railway.app']
-
-# --- EMAIL SETTINGS (omitted for brevity) ---
+# --- EMAIL ---
 EMAIL_BACKEND = config('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', '')
 EMAIL_PORT = int(config('EMAIL_PORT', 587))
@@ -124,5 +110,10 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
 
 # --- DEFAULTS ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = 'portfolio:admin-login'
 
-LOGIN_URL = 'portfolio:admin-login' 
+# --- PRODUCTION TIPS ---
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True

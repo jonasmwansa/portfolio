@@ -17,9 +17,10 @@ RUN apt-get update && apt-get install -y \
     default-libmysqlclient-dev \
     libjpeg62-turbo-dev \
     zlib1g-dev \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy requirement file
+# Copy requirements file
 COPY requirements.txt /app/
 
 # Install Python dependencies
@@ -31,8 +32,9 @@ COPY . /app/
 # Collect static files (WhiteNoise will serve them)
 RUN python manage.py collectstatic --noinput
 
-# Expose Django/Gunicorn port
-EXPOSE 8000
+# Expose port (Railway uses PORT environment variable)
+ENV PORT 8080
+EXPOSE $PORT
 
 # Run the app using Gunicorn
-CMD ["gunicorn", "portfolioproject.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "portfolioproject.wsgi:application", "--bind", "0.0.0.0:8080"]
