@@ -107,7 +107,7 @@ def contact_view(request):
                     owner_subject,
                     owner_message,
                     email,  
-                    ['jonasmwansa@dev.com'], 
+                    ['jonasmwansa7@gmail.com'], 
                     fail_silently=False,
                 )
                 
@@ -120,11 +120,11 @@ def contact_view(request):
 
                 Here's a copy of your message:
                 Subject: {subject}
-                Message: {message}
+                Message: \n\n{message}
 
                 Best regards,
                 Jonas Mwansa
-                Applications Developer
+                Applications Developer & data Enthusiast
 
                 ---
                 This is an automated response.

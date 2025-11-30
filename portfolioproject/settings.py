@@ -102,6 +102,7 @@ STATICFILES_STORAGE = (
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    'jmwansa.pythonanywhere.com',
     config('RAILWAY_APP_URL', 'jmwansa.up.railway.app')
 ]
 
